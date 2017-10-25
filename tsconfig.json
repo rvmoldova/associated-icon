@@ -1,0 +1,43 @@
+{
+    "compilerOptions": {
+        "allowSyntheticDefaultImports": true,
+        "allowUnreachableCode": true,
+        "allowUnusedLabels": true,
+        "baseUrl": "src/",
+        "declaration": false,
+        "diagnostics": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "inlineSourceMap": true,
+        "listFiles": false,
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "noEmitHelpers": true,
+        "noEmitOnError": false,
+        "noFallthroughCasesInSwitch": false,
+        "noImplicitAny": false,
+        "noImplicitReturns": false,
+        "noImplicitUseStrict": false,
+        "noLib": false,
+        "outDir": "dist/",
+        "pretty": true,
+        "removeComments": false,
+        "suppressExcessPropertyErrors": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "target": "es6"
+    },
+    "include": [
+        "src/**/*",
+        "./index.d.ts"
+    ],
+    "exclude": [
+        "typings/main.d.ts",
+        "typings/main",
+        "node_modules"
+    ],
+    "compileOnSave": true,
+    "buildOnSave": true,
+    "atom": {
+        "rewriteTsconfig": false
+    }
+}
