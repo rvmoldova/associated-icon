@@ -6,6 +6,7 @@ import sourcemaps from 'gulp-sourcemaps';
 import ts from 'gulp-typescript';
 import uglify from 'gulp-uglify';
 import copy from 'gulp-copy';
+import chmod from 'gulp-chmod';
 
 const tsProject = ts.createProject('tsconfig.json');
 
@@ -44,11 +45,30 @@ gulp.task('copy-npm-data', () => {
 gulp.task('copy-windows-bin', () => {
     return gulp.src('WinAssociatedIcon/WinAssociatedIcon/bin/Release/**/*')
         .pipe(gulp.dest(`${paths.dist}/bin/windows`));
-})
+});
+
+gulp.task('copy-mac-bin', () => {
+    return gulp.src('MacAssociatedIcon/bin/**/*')
+        .pipe(chmod({
+            owner: {
+                read: true,
+                write: true,
+                execute: true
+            },
+            group: {
+                execute: true
+            },
+            others: {
+                execute: true
+            }
+        }))
+        .pipe(gulp.dest(`${paths.dist}/bin/mac`));
+});
 
 gulp.task('default', gulp.series([
     'clean',
     'build',
     'copy-npm-data',
     'copy-windows-bin',
+    'copy-mac-bin',
 ]));

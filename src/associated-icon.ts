@@ -8,21 +8,26 @@ import { join } from 'path';
 
 import { AssociatedIconInterface, IconResponseInterface } from '../index';
 
+const bin = {
+    Windows_NT: join(__dirname, 'bin', 'windows', 'WinAssociatedIcon.exe'),
+    Darwin: join(__dirname, 'bin', 'mac', 'MacAssociatedIcon'),
+};
+
 class AssociatedIcon implements AssociatedIconInterface {
     constructor() { }
 
     getBase64Icon(appPath: string): Promise<IconResponseInterface | Error> {
-        if (type() === 'Windows_NT') {
-            return this.getBase64IconWindows(appPath);
+        if (bin[type()]) {
+            return this.getIcon(appPath, bin[type()]);
         } else {
             console.warn(`Not supported yet on platform ${type()}`);
             return Promise.resolve(<IconResponseInterface>{ Path: appPath, Base64Data: '' });
         }
     }
 
-    private getBase64IconWindows(path: string): Promise<IconResponseInterface | Error> {
+    private getIcon(path: string, bin: string): Promise<IconResponseInterface | Error> {
         return new Promise((resolve, reject) => {
-            let process = spawn(join(__dirname, 'bin', 'windows', 'WinAssociatedIcon.exe'), [path]);
+            let process = spawn(bin, [path]);
             let outData = '';
             process.stdout.on('data', (data) => {
                 outData += data.toString();

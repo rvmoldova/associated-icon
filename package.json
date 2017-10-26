@@ -1,6 +1,6 @@
 {
   "name": "associated-icon",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Given a path, return base64 data of the icon used for that file",
   "main": "associated-icon.min.js",
   "scripts": {
@@ -39,6 +39,7 @@
     "del": "^3.0.0",
     "gulp": "gulpjs/gulp#4ed9a4a3275559c73a396eff7e1fde3824951ebb",
     "gulp-babel": "^7.0.0",
+    "gulp-chmod": "^2.0.0",
     "gulp-copy": "^1.0.1",
     "gulp-rename": "^1.2.2",
     "gulp-sourcemaps": "^2.6.1",
