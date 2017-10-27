@@ -1,4 +1,4 @@
-# Associated Icon v1.1.0
+# Associated Icon v1.1.1
 
 ### Instalation
 
@@ -7,7 +7,7 @@ npm install associated-icon
 ```
 ### Supported Platforms
 
-- Windows (.NET Framework 3.5+)
+- Windows
 - MacOS X
 
 ### Use example
