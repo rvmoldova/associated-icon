@@ -1,6 +1,6 @@
 {
   "name": "associated-icon",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Given a path, return base64 data of the icon used for that file",
   "main": "associated-icon.min.js",
   "scripts": {

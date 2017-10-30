@@ -4,7 +4,7 @@
 
 
 export default class AssociatedIcon {
-    constructor();
+    constructor(_execFile?: boolean);
     getBase64Icon(path: string): Promise<IconResponseInterface>;
 }
 
