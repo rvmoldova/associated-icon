@@ -1,7 +1,11 @@
 # Changelog
 
+## 1.1.3 - 2017-10-30
+### Removed
+- Removed promisify to work on older node versions
+
 ## 1.1.2 - 2017-10-30
-### Changed
+### Added
 - Added option execFile to contructor (this will use execFile instead of spawn, so this will work in electron)
 
 ## 1.1.1 - 2017-10-27

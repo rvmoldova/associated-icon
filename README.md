@@ -1,4 +1,4 @@
-# Associated Icon v1.1.1
+# Associated Icon v1.1.3
 
 ### Instalation
 

@@ -2,14 +2,12 @@ import 'reflect-metadata';
 import 'source-map-support/register';
 import 'ts-helpers';
 
-import { execFile as execFileTemp, spawn } from 'child_process';
+import { execFile, spawn } from 'child_process';
 import { type } from 'os';
 import { join } from 'path';
-import { promisify } from 'util';
 
 import { AssociatedIconInterface, IconResponseInterface } from '../index';
 
-const execFile = promisify(execFileTemp);
 
 const bin = {
     Windows_NT: join(__dirname, 'bin', 'windows', 'WinAssociatedIcon.exe'),
@@ -34,13 +32,13 @@ class AssociatedIcon implements AssociatedIconInterface {
 
     private getIcon(path: string, bin: string): Promise<IconResponseInterface | Error> {
         if (this._execFile)
-            return new Promise(async (resolve, reject) => {
-                try {
-                    const { stdout } = await execFile(bin, [path]);
+            return new Promise((resolve, reject) => {
+                execFile(bin, [path], (err, stdout, stderr) => {
+                    if (err) {
+                        return reject(err.message);
+                    }
                     resolve(JSON.parse(stdout));
-                } catch (e) {
-                    reject(e.message);
-                }
+                });
             });
         else
             return new Promise((resolve, reject) => {
