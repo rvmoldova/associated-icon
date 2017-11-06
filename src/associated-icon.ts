@@ -26,7 +26,7 @@ class AssociatedIcon implements AssociatedIconInterface {
             return this.getIcon(appPath, bin[type()]);
         } else {
             console.warn(`Not supported yet on platform ${type()}`);
-            return Promise.resolve(<IconResponseInterface>{ Path: appPath, Base64Data: '' });
+            return Promise.resolve(<IconResponseInterface>{ Path: appPath, Base64Image: '' });
         }
     }
 

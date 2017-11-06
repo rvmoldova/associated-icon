@@ -20,7 +20,7 @@ namespace WinAssociatedIcon
                     responseJson.Path = getShortcutTarget(responseJson.Path);
                 }
 
-                responseJson.Base64Data = getIconAsBase64(args[0]);
+                responseJson.Base64Image = getIconAsBase64(args[0]);
                 Console.WriteLine(JsonConvert.SerializeObject(responseJson));
             }
             else

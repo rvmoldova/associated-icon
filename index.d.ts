@@ -12,6 +12,6 @@ export interface AssociatedIconInterface {
     getBase64Icon(path: string): Promise<IconResponseInterface | Error>;
 }
 export interface IconResponseInterface {
-    Base64Data: string;
+    Base64Image: string;
     Path: string;
 }

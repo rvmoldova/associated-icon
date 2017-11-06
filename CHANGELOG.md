@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.2.0 - 2017-11-06
+- Changed response.Base64Image -> response.Base64Data
+
 ## 1.1.3 - 2017-10-30
 ### Removed
 - Removed promisify to work on older node versions
